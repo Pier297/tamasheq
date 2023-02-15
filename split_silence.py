@@ -6,8 +6,8 @@ import pandas as pd
 # Set the input file
 input_file = "original/Journal_tas-17012023.mp3"
 db = 30
-duration = 0.25
-output_dir = "silence_11seconds"
+duration = 0.2
+output_dir = "silence_7seconds"
 
 # Check if the output directory exists, if not create it; otherwise ask the user if they want to overwrite the directory
 try:
@@ -67,8 +67,8 @@ for i in range(len(start_times)):
     results["Start Time"].append(real_start_times[i])
     results["End Time"].append(real_end_times[i])
     results["Duration (sec)"].append(audio_durations[i])
-    url = f"https://github.com/Pier297/tamasheq/{output_dir}/output_{i}.mp3"
-    hyperlink = f'=HYPERLINK("{url}", "{url}")'
+    url = f"https://github.com/Pier297/tamasheq/raw/main/{output_dir}/output_{i}.mp3"
+    hyperlink = f'=HYPERLINK("{url}", "{output_dir}/output_{i}.mp3")'
     results["Link"].append(hyperlink)
 
 df = pd.DataFrame(results).round(2)
